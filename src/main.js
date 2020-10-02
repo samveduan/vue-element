@@ -12,12 +12,9 @@ import 'bootstrap-table/dist/bootstrap-table.min.js'
 import 'bootstrap-table/dist/locale/bootstrap-table-zh-CN.min.js'
 import 'bootstrapvalidator/dist/css/bootstrapValidator.min.css'
 import 'bootstrapvalidator/dist/js/bootstrapValidator.min.js'
-
+import 'ztree'
 import 'ztree/css/metroStyle/metroStyle.css'
-import 'ztree/js/jquery.ztree.core.js'
-import 'ztree/js/jquery.ztree.exedit.js'
-import 'ztree/js/jquery.ztree.excheck.js'
-import 'ztree/js/jquery.ztree.exhide.js'
+
 
 import echarts from 'echarts'
 

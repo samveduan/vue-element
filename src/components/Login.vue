@@ -122,8 +122,7 @@ export default {
           .then(res => {
             if (res.data.ret) {
               localStorage.setItem("islogin", 1);
-              console.log(localStorage.getItem("islogin"));
-              _this.$router.push({ path: "/main/form/radio" });
+              _this.$router.push({ path: "/radio" });
             } else {
               _this.$message("用户名或密码错误！");
               return false;

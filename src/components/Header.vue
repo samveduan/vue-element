@@ -1,6 +1,6 @@
 <template>
   <el-row style="height: 80px;">
-    <el-col :span="5" class="logo">React管理系统</el-col>
+    <el-col :span="5" class="logo">Vue管理系统</el-col>
     <el-col :offset="12" :span="4" style="padding-top: 10px;"></el-col>
     <el-col :span="2" :offset="1">
       <el-dropdown style="float: right;">

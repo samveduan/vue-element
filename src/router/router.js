@@ -161,19 +161,19 @@ let router = new Router({
             icon: 'el-icon-phone',
             requireAuth: true
           }
+        },
+        {
+          path: '/tree',
+          alias: '/tree',
+          name: 'tree',
+          component: Tree,
+          meta: {
+            title: 'Tree',
+            icon: 'el-icon-s-marketing',
+            requireAuth: true
+          }
         }
       ]
-    },
-    {
-      path: '/tree',
-      alias: '/tree',
-      name: 'tree',
-      component: Tree,
-      meta: {
-        title: 'Tree',
-        icon: 'el-icon-s-marketing',
-        requireAuth: true
-      }
     }
   ]
 });
@@ -186,7 +186,7 @@ router.beforeEach((to, from, next) => {
  
   if(to.path == "/login"){
     if(islogin){
-      next("/main/form/radio");
+      next("/radio");
     }else{
       next();
     }
