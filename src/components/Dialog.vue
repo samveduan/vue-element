@@ -2,8 +2,23 @@
   <div>
     <el-button type="text" @click="dialogFormVisible = true">验证</el-button>
 
-    <el-dialog title="验证管理员key" :visible.sync="dialogFormVisible" :modal="true" width="600px" :fullscreen="false" @open="openDialog" @close="closeDialog">
-      <el-form status-icon :model="form" :rules="rules" ref="ruleForm" size="small" label-width="100px">
+    <el-dialog
+      title="验证管理员key"
+      :visible.sync="dialogFormVisible"
+      :modal="true"
+      width="600px"
+      :fullscreen="false"
+      @open="openDialog"
+      @close="closeDialog"
+    >
+      <el-form
+        status-icon
+        :model="form"
+        :rules="rules"
+        ref="ruleForm"
+        size="small"
+        label-width="100px"
+      >
         <el-form-item label="账号" prop="name">
           <el-input v-model="form.name"></el-input>
         </el-form-item>
@@ -19,7 +34,7 @@
       </el-form>
       <div slot="footer" class="dialog-footer">
         <el-button @click="resetForm('ruleForm')">取 消</el-button>
-        <el-button type="primary" @click="submitForm('ruleForm')">确 定</el-button>
+        <el-button type="primary" @click="submitForm('ruleForm')">确 定 !</el-button>
       </div>
     </el-dialog>
   </div>
@@ -29,21 +44,25 @@
 export default {
   data() {
     var validateName = (rule, value, callback) => {
-      if(value === ""){
-        callback(new Error("请输入用户名！"))
-      }else if(value.length < 6){
+      if (value === "") {
+        callback(new Error("请输入用户名！"));
+      } else if (value.length < 6) {
         callback(new Error("用户名必须大于5个字符"));
+      } else {
+        callback();
       }
-    }
+    };
 
     let regexp = /^[0-9]+$/;
     var validatePin = (rule, value, callback) => {
-      if(value === ""){
-        callback(new Error("PIN码不能为空！"))
-      }else if(!regexp.test(value)){
+      if (value === "") {
+        callback(new Error("PIN码不能为空！"));
+      } else if (!regexp.test(value)) {
         callback(new Error("PIN码只能为数字"));
+      } else {
+        callback();
       }
-    }
+    };
 
     return {
       dialogFormVisible: false,
@@ -76,27 +95,29 @@ export default {
         .catch(_ => {});
     },
     submitForm(formName) {
+      console.log(this.$refs[formName]);
       this.$refs[formName].validate(valid => {
         if (valid) {
           this.dialogFormVisible = false;
-          console.log("submit!");
+          alert("submit!");
         } else {
-          console.log("error submit!!");
+          alert("error submit!!");
           return false;
         }
       });
+      console.log(this.$refs[formName]);
     },
     resetForm(formName) {
-      this.dialogFormVisible = false;
       this.$refs[formName].resetFields();
+      this.dialogFormVisible = false;
     },
-    openDialog(){
+    openDialog() {
       this.form.name = "123456";
       this.form.certlvl = "1";
       this.form.pin = "123456";
     },
-    closeDialog(){
-      this.$refs['ruleForm'].resetFields()
+    closeDialog() {
+      this.$refs["ruleForm"].resetFields();
     }
   }
 };

@@ -5,16 +5,6 @@ import ElementUI from 'element-ui'
 import 'element-ui/lib/theme-chalk/index.css'
 import App from './App'
 import router from './router/router.js'
-import 'bootstrap/dist/css/bootstrap.min.css'
-import 'bootstrap/dist/js/bootstrap.min.js'
-import 'bootstrap-table/dist/bootstrap-table.min.css'
-import 'bootstrap-table/dist/bootstrap-table.min.js'
-import 'bootstrap-table/dist/locale/bootstrap-table-zh-CN.min.js'
-import 'bootstrapvalidator/dist/css/bootstrapValidator.min.css'
-import 'bootstrapvalidator/dist/js/bootstrapValidator.min.js'
-import 'ztree'
-import 'ztree/css/metroStyle/metroStyle.css'
-
 
 import echarts from 'echarts'
 

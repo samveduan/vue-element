@@ -4,8 +4,8 @@ import Login from '@/components/Login'
 import Main from '@/components/Main'
 import Form from '@/components/Form'
 import Data from '@/components/Data'
-import Radio from '@/components/Radio'
-import Checkbox from '@/components/Checkbox'
+import Step from '@/components/step'
+import Senior from '@/components/senior'
 import Validate from '@/components/Validate'
 import Table from '@/components/Table'
 import Tag from '@/components/Tag'
@@ -13,7 +13,9 @@ import Button from '@/components/Button'
 import Tabs from '@/components/Tabs'
 import Echarts from '@/components/Echarts'
 import Dialog from '@/components/Dialog'
-import Tree from '@/components/Tree'
+import List from '@/pages/list/List'
+import Card from '@/pages/list/CardList'
+import Standard from '@/pages/list/StandardList'
 
 Vue.use(Router);
 
@@ -54,32 +56,32 @@ let router = new Router({
           },
           children: [
             {
-              path: '/main/form/radio',
-              alias: '/radio',
-              name: 'radio',
-              component: Radio,
-              meta: {
-                title: 'Radio',
-                requireAuth: true
-              }
-            },
-            {
-              path: '/main/form/checkbox',
-              alias: '/checkbox',
-              name: 'checkbox',
-              component: Checkbox,
-              meta: {
-                title: 'Checkbox',
-                requireAuth: true
-              }
-            },
-            {
               path: '/main/form/validate',
               alias: '/validate',
               name: 'validate',
               component: Validate,
               meta: {
-                title: 'Validate',
+                title: '基础表单',
+                requireAuth: true
+              }
+            },
+            {
+              path: '/main/form/step',
+              alias: '/step',
+              name: 'Step',
+              component: Step,
+              meta: {
+                title: '分步表单',
+                requireAuth: true
+              }
+            },
+            {
+              path: '/main/form/senior',
+              alias: '/senior',
+              name: 'senior',
+              component: Senior,
+              meta: {
+                title: '高级表单',
                 requireAuth: true
               }
             }
@@ -113,6 +115,39 @@ let router = new Router({
               component: Tag,
               meta: {
                 title: 'Tag',
+                requireAuth: true
+              }
+            }
+          ]
+        },
+        {
+          path: '/main/list',
+          alias: '/list',
+          name: 'list',
+          component: List,
+          meta: {
+            title: 'List',
+            icon: 'el-icon-upload',
+            requireAuth: true
+          },
+          children: [
+            {
+              path: '/main/list/standard',
+              alias: '/standard',
+              name: 'standard',
+              component: Standard,
+              meta: {
+                title: '标准列表',
+                requireAuth: true
+              }
+            },
+            {
+              path: '/main/list/card',
+              alias: '/card',
+              name: 'card',
+              component: Card,
+              meta: {
+                title: '卡片列表',
                 requireAuth: true
               }
             }
@@ -161,17 +196,6 @@ let router = new Router({
             icon: 'el-icon-phone',
             requireAuth: true
           }
-        },
-        {
-          path: '/tree',
-          alias: '/tree',
-          name: 'tree',
-          component: Tree,
-          meta: {
-            title: 'Tree',
-            icon: 'el-icon-s-marketing',
-            requireAuth: true
-          }
         }
       ]
     }
@@ -186,7 +210,7 @@ router.beforeEach((to, from, next) => {
  
   if(to.path == "/login"){
     if(islogin){
-      next("/radio");
+      next("/validate");
     }else{
       next();
     }
