@@ -73,19 +73,30 @@ export default {
     return {
       leftBg: {
         background:
-          "#235d8b url(" +
-          require("../assets/left-bg.png") +
-          ") no-repeat scroll 0 bottom"
+          "#000000"
       },
       topBg: {
         background:
-          "#235d8b url(" +
-          require("../assets/top-bg.png") +
-          ") no-repeat scroll right 0",
+          "#000000",
         height: "80px",
         fontSize: "32px",
         color: "#ffffff"
       }
+      // leftBg: {
+      //   background:
+      //     "#235d8b url(" +
+      //     require("../assets/left-bg.png") +
+      //     ") no-repeat scroll 0 bottom"
+      // },
+      // topBg: {
+      //   background:
+      //     "#235d8b url(" +
+      //     require("../assets/top-bg.png") +
+      //     ") no-repeat scroll right 0",
+      //   height: "80px",
+      //   fontSize: "32px",
+      //   color: "#ffffff"
+      // }
     };
   },
   components: {
@@ -143,12 +154,12 @@ export default {
   background: none!important;
 }
 .el-menu-item.is-active {
-  color: #409eff;
-  background: #ffffff!important;
+  color: #ffffff!important;
+  background: #1890ff!important;
 }
 
 .el-main {
-  background-color: #ffffff;
+  background-color: #f0f2f5;
   color: #333;
   padding: 0;
 }

@@ -1,7 +1,7 @@
 <template>
   <el-row style="height: 80px;">
-    <el-col :span="5" class="logo">Vue管理系统</el-col>
-    <el-col :offset="12" :span="4" style="padding-top: 10px;"></el-col>
+    <el-col :span="12" class="logo"><img :src="require('../assets/logo.svg')"/>Ant Design of Vue管理系统</el-col>
+    <el-col :offset="5" :span="4" style="padding-top: 10px;"></el-col>
     <el-col :span="2" :offset="1">
       <el-dropdown style="float: right;">
         <span class="el-dropdown-link" style="color: #ffffff;">
@@ -26,10 +26,10 @@ export default {
     };
   },
   methods: {
-    loginout(){
+    loginout() {
       console.log("test");
       localStorage.setItem("islogin", 0);
-      this.$router.push({path: "/login"});
+      this.$router.push({ path: "/login" });
     }
   }
 };
@@ -43,5 +43,13 @@ export default {
   font-family: "微软雅黑";
   font-weight: bold;
   text-shadow: 0 0 5px #000000;
+  display: flex;
+  align-items: center;
+}
+
+.logo img {
+  margin: 0 5px 0 0;
+  width: 35px;
+  height: 35px;
 }
 </style>

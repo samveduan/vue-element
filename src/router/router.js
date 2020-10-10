@@ -1,18 +1,20 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import Login from '@/components/Login'
+import Login from '@/pages/login/Login'
 import Main from '@/components/Main'
-import Form from '@/components/Form'
+import Dashbord from '@/pages/dashbord/dashbord'
+import Analysis from '@/pages/dashbord/analysis'
+import Form from '@/pages/form/Form'
 import Data from '@/components/Data'
-import Step from '@/components/step'
-import Senior from '@/components/senior'
-import Validate from '@/components/Validate'
-import Table from '@/components/Table'
-import Tag from '@/components/Tag'
-import Button from '@/components/Button'
-import Tabs from '@/components/Tabs'
-import Echarts from '@/components/Echarts'
-import Dialog from '@/components/Dialog'
+import Step from '@/pages/form/step'
+import Senior from '@/pages/form/senior'
+import Validate from '@/pages/form/Validate'
+import Table from '@/pages/function/Table'
+import Tag from '@/pages/function/Tag'
+import Button from '@/pages/function/Button'
+import Tabs from '@/pages/function/Tabs'
+import Echarts from '@/pages/function/Echarts'
+import Dialog from '@/pages/function/Dialog'
 import List from '@/pages/list/List'
 import Card from '@/pages/list/CardList'
 import Standard from '@/pages/list/StandardList'
@@ -45,12 +47,89 @@ let router = new Router({
       },
       children: [
         {
+          path: '/main/data',
+          alias: '/data',
+          name: 'data',
+          component: Data,
+          meta: {
+            title: '基础功能',
+            icon: 'el-icon-upload',
+            requireAuth: true
+          },
+          children: [
+            {
+              path: '/main/data/table',
+              alias: '/table',
+              name: 'table',
+              component: Table,
+              meta: {
+                title: 'Table',
+                requireAuth: true
+              }
+            },
+            {
+              path: '/main/data/tag',
+              alias: '/tag',
+              name: 'tag',
+              component: Tag,
+              meta: {
+                title: 'Tag',
+                requireAuth: true
+              }
+            },
+            {
+              path: '/main/button',
+              alias: '/button',
+              name: 'button',
+              component: Button,
+              meta: {
+                title: 'Button',
+                icon: 'el-icon-s-order',
+                requireAuth: true
+              }
+            },
+            {
+              path: '/main/tabs',
+              alias: '/tabs',
+              name: 'tabs',
+              component: Tabs,
+              meta: {
+                title: 'Tabs',
+                icon: 'el-icon-s-flag',
+                requireAuth: true
+              }
+            },
+            {
+              path: '/main/echarts',
+              alias: '/echarts',
+              name: 'echarts',
+              component: Echarts,
+              meta: {
+                title: 'Echarts',
+                icon: 'el-icon-s-data',
+                requireAuth: true
+              }
+            },
+            {
+              path: '/main/dialog',
+              alias: '/dialog',
+              name: 'dialog',
+              component: Dialog,
+              meta: {
+                title: 'Dialog',
+                icon: 'el-icon-phone',
+                requireAuth: true
+              }
+            }
+          ]
+        },
+        {
           path: '/main/form',
           alias: '/form',
           name: 'form',
           component: Form,
           meta: {
-            title: 'Form',
+            title: '表单',
             icon: 'el-icon-eleme',
             requireAuth: true
           },
@@ -88,45 +167,12 @@ let router = new Router({
           ]
         },
         {
-          path: '/main/data',
-          alias: '/data',
-          name: 'data',
-          component: Data,
-          meta: {
-            title: 'Data',
-            icon: 'el-icon-upload',
-            requireAuth: true
-          },
-          children: [
-            {
-              path: '/main/data/table',
-              alias: '/table',
-              name: 'table',
-              component: Table,
-              meta: {
-                title: 'Table',
-                requireAuth: true
-              }
-            },
-            {
-              path: '/main/data/tag',
-              alias: '/tag',
-              name: 'tag',
-              component: Tag,
-              meta: {
-                title: 'Tag',
-                requireAuth: true
-              }
-            }
-          ]
-        },
-        {
           path: '/main/list',
           alias: '/list',
           name: 'list',
           component: List,
           meta: {
-            title: 'List',
+            title: '列表',
             icon: 'el-icon-upload',
             requireAuth: true
           },
@@ -154,48 +200,27 @@ let router = new Router({
           ]
         },
         {
-          path: '/main/button',
-          alias: '/button',
-          name: 'button',
-          component: Button,
+          path: '/main/dashbord',
+          alias: '/dashbord',
+          name: 'dashbord',
+          component: Dashbord,
           meta: {
-            title: 'Button',
-            icon: 'el-icon-s-order',
+            title: 'Dashbord',
+            icon: 'el-icon-upload',
             requireAuth: true
-          }
-        },
-        {
-          path: '/main/tabs',
-          alias: '/tabs',
-          name: 'tabs',
-          component: Tabs,
-          meta: {
-            title: 'Tabs',
-            icon: 'el-icon-s-flag',
-            requireAuth: true
-          }
-        },
-        {
-          path: '/main/echarts',
-          alias: '/echarts',
-          name: 'echarts',
-          component: Echarts,
-          meta: {
-            title: 'Echarts',
-            icon: 'el-icon-s-data',
-            requireAuth: true
-          }
-        },
-        {
-          path: '/main/dialog',
-          alias: '/dialog',
-          name: 'dialog',
-          component: Dialog,
-          meta: {
-            title: 'Dialog',
-            icon: 'el-icon-phone',
-            requireAuth: true
-          }
+          },
+          children: [
+            {
+              path: '/main/dashbord/analysis',
+              alias: '/analysis',
+              name: 'analysis',
+              component: Analysis,
+              meta: {
+                title: '分析页',
+                requireAuth: true
+              }
+            }
+          ]
         }
       ]
     }
